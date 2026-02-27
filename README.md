@@ -1,6 +1,6 @@
-# DevOps Forge Portfolio
+# IS Engineering Portfolio
 
-A modern, responsive portfolio website for DevOps engineering teams, powered by GitHub Pages and GitHub Actions.
+A modern, responsive portfolio website for IS Engineering teams, powered by GitHub Pages and GitHub Actions.
 
 ## 🚀 Features
 

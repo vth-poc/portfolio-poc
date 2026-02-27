@@ -59,10 +59,10 @@ function parseHeroContent(md) {
 
 // Render Hero Section
 function renderHero(content) {
-  if (content.title) {
-    const titleElement = document.getElementById("hero-title");
-    titleElement.innerHTML = content.title;
-  }
+  if (content.title)
+    document.getElementById("hero-title").innerHTML = marked.parse(
+      content.title,
+    );
   if (content.description)
     document.getElementById("hero-description").innerHTML = marked.parse(
       content.description,
