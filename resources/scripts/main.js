@@ -46,9 +46,13 @@ function parseHeroContent(md) {
       currentKey = "description";
       currentValue = [line.replace("### ", "")];
     } else if (line.startsWith("- stat:")) {
-      if (currentKey) content[currentKey] = currentValue.join("\n").trim();
-      currentKey = "stats";
-      currentValue = [line.replace("- stat:", "").trim()];
+      // Accumulate all stat lines instead of overwriting
+      if (currentKey !== "stats") {
+        if (currentKey) content[currentKey] = currentValue.join("\n").trim();
+        currentKey = "stats";
+        currentValue = [];
+      }
+      currentValue.push(line.replace("- stat:", "").trim());
     } else if (line.trim() && !line.startsWith("#")) {
       currentValue.push(line);
     }
