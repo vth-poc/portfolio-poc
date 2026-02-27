@@ -28,24 +28,24 @@
 
 ---
 
-- name: Alex Rivera
-- role: Lead SRE
-- bio: Ex-Google SRE, k8s contributor. Makes sure you sleep well.
+- name: Marcus Johnson
+- role: DevOps Engineer
+- bio: CI/CD specialist with 8+ years of experience.
 
 ---
 
-- name: Jordan Chen
-- role: Cloud Architect
-- bio: AWS hero, Terraform wizard. Multi-cloud strategy expert.
+- name: Sarah Williams
+- role: Site Reliability Engineer
+- bio: Kubernetes expert focused on observability and monitoring.
 
 ---
 
-- name: Taylor Smith
-- role: Security & Automation
-- bio: DevSecOps enthusiast, builds hardened pipelines.
+- name: David Lee
+- role: Cloud Infrastructure Engineer
+- bio: Specializes in AWS and Azure cloud migrations.
 
 ---
 
-- name: Priya Kapoor
-- role: Platform Engineer
-- bio: Loves building internal developer platforms (IDP).
+- name: Emily Zhang
+- role: Automation Engineer
+- bio: Python and Go developer building automation tools.

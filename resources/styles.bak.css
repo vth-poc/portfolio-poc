@@ -184,6 +184,7 @@ section {
   background: linear-gradient(145deg, #2563eb, #38bdf8);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .hero p {
@@ -597,5 +598,8 @@ footer {
   .footer-content {
     flex-direction: column;
     text-align: center;
+  }
+  .hero h1 {
+    font-size: 2.5rem;
   }
 }
