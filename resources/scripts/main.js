@@ -151,20 +151,24 @@ function parseTeamContent(md) {
 // Render Team Section
 function renderTeam(members) {
   const container = document.getElementById("team-container");
-  container.innerHTML = members
-    .map(
-      (member) => `
-    <div class="team-card">
+
+  // Clear any existing content
+  container.innerHTML = "";
+
+  // Create and append each team member card
+  members.forEach((member) => {
+    const card = document.createElement("div");
+    card.className = "team-card";
+    card.innerHTML = `
       <div class="team-avatar">
         <i class="fas fa-user-circle"></i>
       </div>
       <h3>${member.name}</h3>
       <div class="team-role">${member.role}</div>
       <p class="team-bio">${member.bio || ""}</p>
-    </div>
-  `,
-    )
-    .join("");
+    `;
+    container.appendChild(card);
+  });
 }
 
 // Parse Projects Content
