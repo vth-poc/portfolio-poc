@@ -63,27 +63,31 @@ function renderHero(content) {
     const titleElement = document.getElementById("hero-title");
     titleElement.innerHTML = content.title;
   }
-  if (content.description)
+  if (content.description) {
     document.getElementById("hero-description").innerHTML = marked.parse(
       content.description,
     );
+  }
   if (content.stats) {
     const statsContainer = document.getElementById("hero-stats");
     const stats = content.stats.split("\n").filter((s) => s.trim());
-    if (stats.length >= 2) {
-      const statItems = statsContainer.querySelectorAll(".stat-item");
-      stats.forEach((stat, i) => {
-        if (statItems[i]) {
-          const parts = stat.split("|");
-          if (parts.length >= 2) {
-            statItems[i].querySelector(".stat-number").textContent =
-              parts[0].trim();
-            statItems[i].querySelector(".stat-label").textContent =
-              parts[1].trim();
-          }
-        }
-      });
-    }
+
+    // Clear existing stat items
+    statsContainer.innerHTML = "";
+
+    // Create stat items dynamically based on number of stats
+    stats.forEach((stat) => {
+      const parts = stat.split("|");
+      if (parts.length >= 2) {
+        const statItem = document.createElement("div");
+        statItem.className = "stat-item";
+        statItem.innerHTML = `
+          <span class="stat-number">${parts[0].trim()}</span>
+          <span class="stat-label">${parts[1].trim()}</span>
+        `;
+        statsContainer.appendChild(statItem);
+      }
+    });
   }
 }
 
