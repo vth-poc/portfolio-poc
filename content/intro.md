@@ -4,5 +4,3 @@
 
 - stat: 150+ | Pipelines Built
 - stat: 24/7 | Reliability
-- stat: 99.9% | Uptime Guaranteed
-- stat: 500+ | Happy Clients
