@@ -46,7 +46,6 @@ function parseHeroContent(md) {
       currentKey = "description";
       currentValue = [line.replace("### ", "")];
     } else if (line.startsWith("- stat:")) {
-      // Accumulate all stat lines instead of overwriting
       if (currentKey !== "stats") {
         if (currentKey) content[currentKey] = currentValue.join("\n").trim();
         currentKey = "stats";
@@ -76,10 +75,8 @@ function renderHero(content) {
     const statsContainer = document.getElementById("hero-stats");
     const stats = content.stats.split("\n").filter((s) => s.trim());
 
-    // Clear existing stat items
     statsContainer.innerHTML = "";
 
-    // Create stat items dynamically based on number of stats
     stats.forEach((stat) => {
       const parts = stat.split("|");
       if (parts.length >= 2) {
@@ -145,12 +142,6 @@ function parseTeamContent(md) {
         member.role = line.replace("- role:", "").trim();
       else if (line.startsWith("- bio:"))
         member.bio = line.replace("- bio:", "").trim();
-      else if (line.startsWith("- linkedin:"))
-        member.linkedin = line.replace("- linkedin:", "").trim();
-      else if (line.startsWith("- github:"))
-        member.github = line.replace("- github:", "").trim();
-      else if (line.startsWith("- twitter:"))
-        member.twitter = line.replace("- twitter:", "").trim();
     }
     if (member.name && member.role) members.push(member);
   }
@@ -160,25 +151,24 @@ function parseTeamContent(md) {
 // Render Team Section
 function renderTeam(members) {
   const container = document.getElementById("team-container");
-  container.innerHTML = members
-    .map(
-      (member) => `
-    <div class="team-card">
+
+  // Clear any existing content
+  container.innerHTML = "";
+
+  // Create and append each team member card
+  members.forEach((member) => {
+    const card = document.createElement("div");
+    card.className = "team-card";
+    card.innerHTML = `
       <div class="team-avatar">
         <i class="fas fa-user-circle"></i>
       </div>
       <h3>${member.name}</h3>
       <div class="team-role">${member.role}</div>
       <p class="team-bio">${member.bio || ""}</p>
-      <div class="team-social">
-        ${member.linkedin ? `<a href="${member.linkedin}" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>` : ""}
-        ${member.github ? `<a href="${member.github}" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>` : ""}
-        ${member.twitter ? `<a href="${member.twitter}" target="_blank" rel="noopener noreferrer"><i class="fab fa-x-twitter"></i></a>` : ""}
-      </div>
-    </div>
-  `,
-    )
-    .join("");
+    `;
+    container.appendChild(card);
+  });
 }
 
 // Parse Projects Content
@@ -231,14 +221,12 @@ function renderProjects(projects) {
 
 // Load All Content
 async function loadContent() {
-  // Load Hero Content
   const heroMd = await fetchMarkdown("intro.md");
   if (heroMd) {
     const heroContent = parseHeroContent(heroMd);
     renderHero(heroContent);
   }
 
-  // Load About Content
   const aboutMd = await fetchMarkdown("about.md");
   if (aboutMd) {
     const lines = aboutMd.split("\n");
@@ -256,14 +244,12 @@ async function loadContent() {
     }
   }
 
-  // Load Skills Content
   const skillsMd = await fetchMarkdown("skills.md");
   if (skillsMd) {
     const skills = parseSkillsContent(skillsMd);
     renderSkills(skills);
   }
 
-  // Load Team Content
   const teamMd = await fetchMarkdown("team.md");
   if (teamMd) {
     const lines = teamMd.split("\n");
@@ -283,7 +269,6 @@ async function loadContent() {
     renderTeam(members);
   }
 
-  // Load Projects Content
   const projectsMd = await fetchMarkdown("projects.md");
   if (projectsMd) {
     const lines = projectsMd.split("\n");
@@ -304,5 +289,4 @@ async function loadContent() {
   }
 }
 
-// Initialize on DOM Ready
 document.addEventListener("DOMContentLoaded", loadContent);

@@ -239,6 +239,7 @@ section {
   display: flex;
   gap: 2rem;
   margin-top: 2.5rem;
+  flex-wrap: wrap;
 }
 
 .stat-item {
@@ -309,11 +310,14 @@ section {
   font-size: 0.9rem;
 }
 
+/* Team Grid - Supports Unlimited Members */
 .team-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2.5rem;
   margin-top: 2rem;
+  width: 100%;
+  grid-auto-rows: auto;
 }
 
 .team-card {
@@ -324,6 +328,7 @@ section {
   transition: 0.2s;
   text-align: center;
   border: 1px solid #f0f2f5;
+  width: 100%;
 }
 
 .team-card:hover {
@@ -488,6 +493,13 @@ footer {
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+/* Responsive Breakpoints for Team Grid */
+@media (max-width: 1200px) {
+  .team-grid {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
