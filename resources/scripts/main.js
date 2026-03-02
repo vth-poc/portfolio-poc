@@ -1,3 +1,14 @@
+// Sanitize all marked output via DOMPurify
+const renderer = new marked.Renderer();
+marked.use({
+  renderer,
+  hooks: {
+    postprocess(html) {
+      return DOMPurify.sanitize(html);
+    },
+  },
+});
+
 // Theme Toggle
 const themeToggle = document.getElementById("themeToggle");
 const themeIcon = themeToggle?.querySelector("i");
