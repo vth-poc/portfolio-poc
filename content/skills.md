@@ -28,18 +28,6 @@
 
 ---
 
-- icon: fas fa-cloud
-- title: Cloud & Storage
-- description: AWS Route 53, Pure Storage FlashArrays & FlashBlades, Azure, CommVault
-
----
-
-- icon: fas fa-eye
-- title: Observability & Monitoring
-- description: SCOM, PowerBI Dashboards, vCheck Reports, Device42 Discovery
-
----
-
 - icon: fas fa-shield-alt
 - title: Security & Compliance
 - description: PasswordState, Secrets Rotation, Identity Lifecycle, GRC Initiatives, BrandShelter, SQL Certificate Rotation
