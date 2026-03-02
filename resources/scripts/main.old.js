@@ -115,6 +115,13 @@ function parseSkillsContent(md) {
 // Render Skills Section
 function renderSkills(skills) {
   const container = document.getElementById("skills-container");
+
+  if (!skills || skills.length === 0) {
+    container.innerHTML =
+      '<div class="empty-content">No skills to display</div>';
+    return;
+  }
+
   container.innerHTML = skills
     .map(
       (skill) => `
@@ -152,10 +159,14 @@ function parseTeamContent(md) {
 function renderTeam(members) {
   const container = document.getElementById("team-container");
 
-  // Clear any existing content
+  if (!members || members.length === 0) {
+    container.innerHTML =
+      '<div class="empty-content">No team members to display</div>';
+    return;
+  }
+
   container.innerHTML = "";
 
-  // Create and append each team member card
   members.forEach((member) => {
     const card = document.createElement("div");
     card.className = "team-card";
@@ -202,6 +213,13 @@ function parseProjectsContent(md) {
 // Render Projects Section
 function renderProjects(projects) {
   const container = document.getElementById("projects-container");
+
+  if (!projects || projects.length === 0) {
+    container.innerHTML =
+      '<div class="empty-content">No projects to display</div>';
+    return;
+  }
+
   container.innerHTML = projects
     .map(
       (project) => `
@@ -221,12 +239,14 @@ function renderProjects(projects) {
 
 // Load All Content
 async function loadContent() {
+  // Load Hero Content
   const heroMd = await fetchMarkdown("intro.md");
   if (heroMd) {
     const heroContent = parseHeroContent(heroMd);
     renderHero(heroContent);
   }
 
+  // Load About Content
   const aboutMd = await fetchMarkdown("about.md");
   if (aboutMd) {
     const lines = aboutMd.split("\n");
@@ -244,12 +264,14 @@ async function loadContent() {
     }
   }
 
+  // Load Skills Content
   const skillsMd = await fetchMarkdown("skills.md");
   if (skillsMd) {
     const skills = parseSkillsContent(skillsMd);
     renderSkills(skills);
   }
 
+  // Load Team Content
   const teamMd = await fetchMarkdown("team.md");
   if (teamMd) {
     const lines = teamMd.split("\n");
@@ -269,6 +291,7 @@ async function loadContent() {
     renderTeam(members);
   }
 
+  // Load Projects Content
   const projectsMd = await fetchMarkdown("projects.md");
   if (projectsMd) {
     const lines = projectsMd.split("\n");
@@ -289,4 +312,5 @@ async function loadContent() {
   }
 }
 
+// Initialize on DOM Ready
 document.addEventListener("DOMContentLoaded", loadContent);

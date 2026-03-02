@@ -42,8 +42,8 @@
           <h1 id="hero-title">Loading...</h1>
           <p id="hero-description">Loading content...</p>
           <div class="hero-btns">
-            <a href="#contact" class="btn-primary">Start a Project</a>
-            <a href="#projects" class="btn-outline-dark">See Work</a>
+            <a href="#projects" class="btn-primary">See Our Work</a>
+            <a href="#team" class="btn-outline-dark">Meet the Team</a>
           </div>
           <div class="hero-stats" id="hero-stats">
             <div class="stat-item">

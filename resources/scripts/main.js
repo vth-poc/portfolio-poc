@@ -1,3 +1,41 @@
+// Theme Toggle Functionality
+const themeToggle = document.getElementById("themeToggle");
+const themeIcon = themeToggle ? themeToggle.querySelector("i") : null;
+
+// Check for saved theme preference or default to light
+const savedTheme = localStorage.getItem("theme");
+const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+  document.body.classList.add("dark-theme");
+  if (themeIcon) {
+    themeIcon.classList.remove("fa-moon");
+    themeIcon.classList.add("fa-sun");
+  }
+}
+
+// Toggle theme on button click
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-theme");
+
+    // Update icon and save preference
+    if (document.body.classList.contains("dark-theme")) {
+      if (themeIcon) {
+        themeIcon.classList.remove("fa-moon");
+        themeIcon.classList.add("fa-sun");
+      }
+      localStorage.setItem("theme", "dark");
+    } else {
+      if (themeIcon) {
+        themeIcon.classList.remove("fa-sun");
+        themeIcon.classList.add("fa-moon");
+      }
+      localStorage.setItem("theme", "light");
+    }
+  });
+}
+
 // Navigation Toggle
 const hamburger = document.getElementById("hamburger");
 const navMenu = document.getElementById("navMenu");
