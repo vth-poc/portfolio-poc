@@ -5,14 +5,12 @@
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   color: #1e293b;
   background-color: #f8fafc;
   line-height: 1.5;
   scroll-behavior: smooth;
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 :root {
@@ -29,10 +27,9 @@ body {
   --bg-card: #ffffff;
   --text-primary: #1e293b;
   --text-secondary: #64748b;
-  --shadow:
-    0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+  --shadow: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.02);
   --border-radius: 1rem;
-  --border-color: rgba(0, 0, 0, 0.02);
+  --border-color: rgba(0,0,0,0.05);
   --badge-bg: #dbeafe;
   --badge-text: #1d4ed8;
   --tag-bg: #eef2ff;
@@ -43,25 +40,25 @@ body {
 
 /* Dark Theme */
 body.dark-theme {
-  --primary: #3b82f6;
-  --primary-dark: #2563eb;
+  --primary: #60a5fa;
+  --primary-dark: #3b82f6;
   --secondary: #f1f5f9;
   --accent: #7dd3fc;
-  --gray-light: #334155;
+  --gray-light: #475569;
   --gray: #94a3b8;
   --bg-light: #1e293b;
-  --bg-body: #0f172a;
-  --bg-section: #1e293b;
+  --bg-body: #020617;
+  --bg-section: #0f172a;
   --bg-card: #1e293b;
-  --text-primary: #f1f5f9;
-  --text-secondary: #94a3b8;
-  --shadow:
-    0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.2);
-  --border-color: rgba(255, 255, 255, 0.05);
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --shadow: 0 10px 25px -5px rgba(0,0,0,0.5), 0 8px 10px -6px rgba(0,0,0,0.3);
+  --border-radius: 1rem;
+  --border-color: rgba(255,255,255,0.1);
   --badge-bg: #1e3a5f;
-  --badge-text: #7dd3fc;
+  --badge-text: #93c5fd;
   --tag-bg: #1e3a5f;
-  --tag-text: #7dd3fc;
+  --tag-text: #93c5fd;
   --footer-bg: #1e293b;
   --footer-border: #334155;
 }
@@ -75,7 +72,7 @@ body.dark-theme {
 
 .navbar {
   background-color: var(--bg-light);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.02);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -84,7 +81,8 @@ body.dark-theme {
 }
 
 body.dark-theme .navbar {
-  background-color: rgba(30, 41, 59, 0.85);
+  background-color: rgba(30,41,59,0.95);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .nav-container {
@@ -195,6 +193,7 @@ body.dark-theme .navbar {
     box-shadow: var(--shadow);
     transition: left 0.3s ease;
     z-index: 99;
+    border: 1px solid var(--border-color);
   }
 
   .nav-menu.active {
@@ -248,18 +247,20 @@ section {
   margin-bottom: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Hero Section - Dynamic */
 .hero {
   padding: 4rem 0 5rem;
-  background: linear-gradient(to bottom, var(--bg-light), var(--bg-section));
+  background: linear-gradient(to bottom, var(--bg-light), var(--bg-body));
   min-height: auto;
   height: auto;
   transition: background 0.3s ease;
+}
+
+body.dark-theme .hero {
+  background: linear-gradient(to bottom, var(--bg-body), var(--bg-section));
 }
 
 .hero-grid {
@@ -289,6 +290,13 @@ section {
   background-clip: text;
 }
 
+body.dark-theme .hero h1 span {
+  background: linear-gradient(145deg, #60a5fa, #7dd3fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 .hero p {
   font-size: 1.2rem;
   color: var(--text-secondary);
@@ -311,9 +319,7 @@ section {
   border-radius: 60px;
   font-weight: 600;
   text-decoration: none;
-  transition:
-    background-color 0.2s,
-    transform 0.1s;
+  transition: background-color 0.2s, transform 0.1s;
   display: inline-block;
   border: none;
   box-shadow: 0 4px 6px -2px rgba(37, 99, 235, 0.3);
@@ -406,7 +412,7 @@ section {
 .skill-card:hover {
   transform: translateY(-6px);
   border-color: var(--primary);
-  box-shadow: 0 20px 25px -5px rgba(37, 99, 235, 0.1);
+  box-shadow: 0 20px 25px -5px rgba(37,99,235,0.15);
 }
 
 .skill-card i {
@@ -432,6 +438,8 @@ section {
 .team-section {
   background-color: var(--bg-section);
   transition: background-color 0.3s ease;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .team-grid {
@@ -459,7 +467,8 @@ section {
 }
 
 .team-card:hover {
-  box-shadow: 0 25px 30px -12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 25px 30px -12px rgba(0,0,0,0.2);
+  border-color: var(--primary);
 }
 
 .team-avatar {
@@ -474,13 +483,13 @@ section {
   background: var(--bg-card);
   border-radius: 50%;
   padding: 0.5rem;
-  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.15);
+  box-shadow: 0 8px 20px rgba(37,99,235,0.15);
 }
 
 .team-card h3 {
   font-size: 1.5rem;
   margin-top: 0.5rem;
-  font-weight: 600;
+  font-weight: 700;
   padding: 0 0.5rem;
   color: var(--text-primary);
   transition: color 0.3s ease;
@@ -546,6 +555,7 @@ section {
   margin-bottom: 0.75rem;
   color: var(--text-primary);
   transition: color 0.3s ease;
+  font-weight: 700;
 }
 
 .project-tags {
@@ -562,9 +572,7 @@ section {
   border-radius: 30px;
   font-size: 0.75rem;
   font-weight: 600;
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .project-card p {
@@ -599,9 +607,7 @@ footer {
   padding: 3rem 0 2rem;
   border-top: 1px solid var(--footer-border);
   width: 100%;
-  transition:
-    background-color 0.3s ease,
-    border-color 0.3s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .footer-content {
@@ -652,12 +658,8 @@ footer {
 }
 
 @keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 /* Empty State */
@@ -679,7 +681,7 @@ footer {
   .team-grid {
     grid-template-columns: repeat(3, 1fr);
   }
-
+  
   .hero-grid {
     gap: 2rem;
   }
@@ -741,9 +743,7 @@ footer {
 
 /* Print Styles */
 @media print {
-  .navbar,
-  .hamburger,
-  .theme-toggle {
+  .navbar, .hamburger, .theme-toggle {
     display: none;
   }
   section {
