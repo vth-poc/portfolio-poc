@@ -31,3 +31,9 @@
 - icon: fas fa-shield-alt
 - title: Security & Compliance
 - description: PasswordState, Secrets Rotation, Identity Lifecycle, GRC Initiatives, BrandShelter, SQL Certificate Rotation
+
+---
+
+- icon: fas fa-terminal
+- title: Script & Code Languages
+- description: PowerShell, Python, Bash, YAML, SQL
