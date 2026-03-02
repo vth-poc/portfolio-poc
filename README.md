@@ -26,6 +26,7 @@ A modern, responsive portfolio website for IS Engineering teams, powered by GitH
 │   ├── scripts/
 │   │   └── main.js        # All JavaScript functionality
 │   └── images/            # Image assets
+│       ├── favicon.ico    # Browser tab icon
 │       └── portfolio.png  # Main section image
 ├── .github/
 │   └── workflows/
