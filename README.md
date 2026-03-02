@@ -14,9 +14,9 @@ A modern, responsive portfolio website for IS Engineering teams, powered by GitH
 ## 📁 File Structure
 
 ```
-├── index.html              # Main website file (HTML only)
-├── content/                # Markdown content files
-│   ├── intro.md           # Hero section content
+├── index.html             # Main website file (HTML only)
+├── content/               # Markdown content files
+│   ├── intro.md           # Main section content
 │   ├── about.md           # About section content
 │   ├── skills.md          # Skills/services content
 │   ├── team.md            # Team members content
@@ -26,7 +26,7 @@ A modern, responsive portfolio website for IS Engineering teams, powered by GitH
 │   ├── scripts/
 │   │   └── main.js        # All JavaScript functionality
 │   └── images/            # Image assets
-│       └── hero-image.png # Hero section image
+│       └── portfolio.png  # Main section image
 ├── .github/
 │   └── workflows/
 │       └── deploy.yml     # GitHub Actions deployment workflow
@@ -52,9 +52,9 @@ Copy all files from this template to your repository maintaining the folder stru
 3. Under **Source**, select **GitHub Actions**
 4. Save the settings
 
-### 4. Add Hero Image
+### 4. Add Portfolio Image
 
-Place your hero image in `resources/images/hero-image.png`
+Place your portfolio image in `resources/images/portfolio.png`
 
 ### 5. Customize Content
 

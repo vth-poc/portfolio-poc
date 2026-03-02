@@ -59,7 +59,7 @@ async function fetchMarkdown(filename) {
   }
 }
 
-function parseHeroContent(md) {
+function parsePortfolioContent(md) {
   const content = {};
   let currentKey = null;
   let currentValue = [];
@@ -88,17 +88,17 @@ function parseHeroContent(md) {
   return content;
 }
 
-function renderHero(content) {
+function renderPortfolio(content) {
   if (content.title) {
-    document.getElementById("hero-title").innerHTML = content.title;
+    document.getElementById("portfolio-title").innerHTML = content.title;
   }
   if (content.description) {
-    document.getElementById("hero-description").innerHTML = marked.parse(
+    document.getElementById("portfolio-description").innerHTML = marked.parse(
       content.description,
     );
   }
   if (content.stats) {
-    const container = document.getElementById("hero-stats");
+    const container = document.getElementById("portfolio-stats");
     container.innerHTML = content.stats
       .split("\n")
       .filter((s) => s.trim())
@@ -237,8 +237,8 @@ function renderProjects(projects) {
 }
 
 async function loadContent() {
-  const heroMd = await fetchMarkdown("intro.md");
-  if (heroMd) renderHero(parseHeroContent(heroMd));
+  const portfolioMd = await fetchMarkdown("intro.md");
+  if (portfolioMd) renderPortfolio(parsePortfolioContent(portfolioMd));
 
   const aboutMd = await fetchMarkdown("about.md");
   if (aboutMd) {
