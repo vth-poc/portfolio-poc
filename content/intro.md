@@ -2,7 +2,5 @@
 
 ### We're a team of IS Engineers. We build resilient, automated platforms so you can focus on code.
 
-- stat: 150+ | Pipelines Built
-- stat: 24/7 | Reliability
-- stat: 99.9% | Uptime Guaranteed
-- stat: 500+ | Happy Clients
+- stat: 200+ | Pipelines Built
+- stat: 900+ | Weekly pipeline execution
