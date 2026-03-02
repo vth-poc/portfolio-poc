@@ -246,10 +246,14 @@ body.dark-theme .hero {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  display: inline-block;
 }
 
 body.dark-theme .hero h1 span {
   background: linear-gradient(145deg, #3b82f6, #7dd3fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .hero p {
