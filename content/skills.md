@@ -42,4 +42,4 @@
 
 - icon: fas fa-shield-alt
 - title: Security & Compliance
-- description: PasswordState, Secrets Rotation, Identity Lifecycle, GRC Initiatives, BrandShelter
+- description: PasswordState, Secrets Rotation, Identity Lifecycle, GRC Initiatives, BrandShelter, SQL Certificate Rotation
